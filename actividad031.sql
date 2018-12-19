@@ -38,9 +38,11 @@ SELECT email, phone, call_date FROM calls INNER JOIN users ON (users.id = user_i
 
 CREATE TABLE audits(
 	id SERIAL,
-	reason varchar,
+	delete_reason varchar,
 	call_id integer,
-	FOREIGN KEY (call_id) REFERENCES calls(id)
+	user_id integer,
+	FOREIGN KEY (call_id) REFERENCES calls(id),
+	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 
